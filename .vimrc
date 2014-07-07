@@ -26,6 +26,9 @@ Plugin 'nanotech/jellybeans.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'python.vim'
+Plugin 'elzr/vim-json'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'bling/vim-airline'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -35,6 +38,23 @@ set background=dark
 colorscheme jellybeans
 
 map <C-n> :NERDTreeToggle<CR>
+map <C-w> :w<CR>
+
+" Use tab to switch buffers
+map <C-Tab> :bnext<cr>
+map <C-S-Tab> :bprevious<cr>
+
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
+" ControlP config
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_show_hidden = 1
+
 set cc=80
 set number
+
 
