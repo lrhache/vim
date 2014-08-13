@@ -30,6 +30,11 @@ Plugin 'elzr/vim-json'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+Plugin 'm2mdas/phpcomplete-extended'
+Plugin 'commentop.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -57,6 +62,9 @@ map <S-Tab> :bprevious<cr>
 map <C-c> :bd<CR>
 "map <C-c> ! :bd!<CR>
 
+" Use Control+d to go the method declaration
+nmap <C-d> :YcmCompleter GoToDeclaration<CR>
+
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
@@ -67,6 +75,12 @@ set laststatus=2
 " ControlP config
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc
 let g:ctrlp_show_hidden = 1
+
+" Disable preview window
+set completeopt-=preview
+
+" Enable php syntax check 
+let g:php_syntax_extensions_enabled
 
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
@@ -94,4 +108,6 @@ set cc=80
 set number
 
 
+" Enable autocomplete for php
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 autocmd Filetype json  inoremap <F5> :update<Bar>execute '!python -m json.tool'<CR>
