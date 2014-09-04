@@ -30,11 +30,20 @@ Plugin 'elzr/vim-json'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
-Plugin 'StanAngeloff/php.vim'
+"Plugin 'StanAngeloff/php.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
 Plugin 'm2mdas/phpcomplete-extended'
 Plugin 'commentop.vim'
+Plugin 'digitaltoad/vim-jade'
+
+Plugin 'moll/vim-node'
+Plugin 'godlygeek/tabular'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'surround.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'maksimr/vim-jsbeautify'
+Plugin 'walm/jshint.vim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -80,7 +89,10 @@ let g:ctrlp_show_hidden = 1
 set completeopt-=preview
 
 " Enable php syntax check 
-let g:php_syntax_extensions_enabled
+let g:php_syntax_extensions_enabled = 1
+
+" Shortcut for json
+nmap <C-j> :%!python -m json.tool<CR>
 
 " configure expanding of tabs for various file types
 au BufRead,BufNewFile *.py set expandtab
@@ -108,6 +120,9 @@ set cc=80
 set number
 
 
-" Enable autocomplete for php
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended#CompletePHP
 autocmd Filetype json  inoremap <F5> :update<Bar>execute '!python -m json.tool'<CR>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
