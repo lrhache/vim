@@ -127,3 +127,7 @@ autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jade setlocal ts=2 sts=2 sw=2
+
+" support clipboard copy/paste when over ssh
+vmap "+y :!xclip -f -sel clip
+map "+p :r!xclip -o -sel clip
