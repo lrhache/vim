@@ -30,10 +30,10 @@ Plugin 'elzr/vim-json'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'bling/vim-airline'
 Plugin 'rking/ag.vim'
-"Plugin 'StanAngeloff/php.vim'
+
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
-Plugin 'm2mdas/phpcomplete-extended'
+
 Plugin 'commentop.vim'
 Plugin 'digitaltoad/vim-jade'
 
@@ -74,6 +74,10 @@ map <C-c> :bd<CR>
 " Use Control+d to go the method declaration
 nmap <C-d> :YcmCompleter GoToDeclaration<CR>
 
+" NerdTree
+let g:NERDTreeWinPos = "right"
+let NERDTreeQuitOnOpen=1
+
 " Powerline
 let g:Powerline_symbols = 'fancy'
 
@@ -89,7 +93,7 @@ let g:ctrlp_show_hidden = 1
 set completeopt-=preview
 
 " Enable php syntax check 
-let g:php_syntax_extensions_enabled = 1
+" let g:php_syntax_extensions_enabled = 1
 
 " Shortcut for json
 nmap <C-j> :%!python -m json.tool<CR>
@@ -129,5 +133,5 @@ autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype jade setlocal ts=2 sts=2 sw=2
 
 " support clipboard copy/paste when over ssh
-vmap "+y :!xclip -f -sel clip
-map "+p :r!xclip -o -sel clip
+" vmap "+y :!xclip -f -sel clip
+" map "+p :r!xclip -o -sel clip
