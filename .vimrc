@@ -135,3 +135,10 @@ autocmd Filetype jade setlocal ts=2 sts=2 sw=2
 " support clipboard copy/paste when over ssh
 " vmap "+y :!xclip -f -sel clip
 " map "+p :r!xclip -o -sel clip
+"
+
+function ExecuteInstall()
+    :PluginInstall
+    :q
+    :q
+endfunction
